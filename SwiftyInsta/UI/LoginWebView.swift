@@ -115,6 +115,10 @@ public class LoginWebView: WKWebView, WKNavigationDelegate {
                                                 modifiedSince: .distantPast,
                                                 completionHandler: completionHandler)
     }
+    
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.init(rawValue: WKNavigationActionPolicy.allow.rawValue + 2)!)
+    }
 
 }
 #endif
